@@ -1,1 +1,16 @@
+@import "../../vendor/fonts/fonts.scss";
+@import "../../vendor/normalize.scss";
 
+h1,
+h2,
+h3,
+h4,
+p {
+  color: #fff;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  background-color: #1c1c21;
+}
