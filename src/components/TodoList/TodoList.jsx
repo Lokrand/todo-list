@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./TodoList.module.scss";
-
+import { items } from '../../utils/constants';
+import { TodoItem } from "../TodoItem/TodoItem";
 export const TodoList = () => {
   
   return (
@@ -28,7 +29,11 @@ export const TodoList = () => {
         </div>
       </div>
       <div>
-        
+        {items.map((el) => {
+          return (
+            <TodoItem data={el}/>
+          )
+        })}
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
   height: calc(100vh - 100px);
   background-color: #1c1c21;
   padding-top: 20px;
-  // padding: 0 20px;
+
   &__columns {
     display: grid;
     grid-template-columns: 1fr 4fr 4fr 3fr;
@@ -12,7 +12,6 @@
     align-items: center;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
-    // flex-direction: row;
   }
   &__filter {
     display: flex;
@@ -34,9 +33,9 @@
     background-color: #fff;
     border: none;
     border-radius: 10px;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
       cursor: pointer;
     }
   }

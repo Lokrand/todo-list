@@ -1,0 +1,66 @@
+.todo {
+  width: 100vw;
+  min-height: 40px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 4fr 3fr;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+  &__item {
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #fff;
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+  }
+  &__status {
+    color: green;
+    &_active {
+      color: blue;
+    }
+  }
+  &__done {
+    width: 80px;
+    height: 25px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    transition: opacity .2s linear;
+    &:hover {
+      opacity: .6;
+      cursor: pointer;
+    }
+  }
+  &__undone {
+    width: 80px;
+    height: 25px;
+    background-color: blue;
+    border: none;
+    border-radius: 10px;
+    transition: opacity .2s linear;
+    &:hover {
+      opacity: .6;
+      cursor: pointer;
+    }
+  }
+  &__remove {
+    width: 80px;
+    height: 25px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    transition: opacity .2s linear;
+    &:hover {
+      opacity: .6;
+      cursor: pointer;
+    }
+  }
+}
