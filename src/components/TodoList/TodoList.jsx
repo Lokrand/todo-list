@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TodoList.module.scss";
 import { items } from '../../utils/constants';
 import { TodoItem } from "../TodoItem/TodoItem";
 export const TodoList = () => {
+  const [popupActive, setPopupActive] = useState(false);
+  
+  const openPopup = () => {
+    setPopupActive(true);
+  }
   
   return (
     <section className={styles.todos}>
@@ -13,6 +18,7 @@ export const TodoList = () => {
           <button className={styles.todos__button}>done</button>
           <button className={styles.todos__button}>undone</button>
         </div>
+        <button className={styles.todos__addTodoButton} onClick={openPopup}>Add new todo</button>
       </div>
       <div className={styles.todos__columns}>
         <div className={styles.todos__number}>
