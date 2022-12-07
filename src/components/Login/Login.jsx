@@ -47,7 +47,7 @@ export const Login = () => {
           />
         </div>
         {buttonActive ? (
-          <NavLink to='/items' className={styles.login__button} onClick={login}>Login</NavLink>
+          <NavLink to='/todos' className={styles.login__button} onClick={login}>Login</NavLink>
           
           ) : (  
             <button className={`${styles.login__button} ${styles.login__button_disabled}`} disabled>Login</button>

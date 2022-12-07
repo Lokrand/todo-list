@@ -1,11 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
   "todos": [
     {
       "id": 1,
@@ -41,6 +34,21 @@
       "title": "name of the my awesome board it is really cool",
       "completed": false,
       "id": 7
+    },
+    {
+      "title": "assdasdad",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "title": "g3qgq3gq3gq3rfewrgfewrg",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "title": "wqwqwdqwdqwd",
+      "completed": false,
+      "id": 10
     }
   ],
   "users": []

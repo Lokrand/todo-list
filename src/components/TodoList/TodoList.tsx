@@ -10,7 +10,7 @@ export const TodoList = observer(() => {
   const [popupActive, setPopupActive] = useState(false);
   
   const openPopup = () => {
-    // setPopupActive(true);
+    setPopupActive(true);
     todo.fetchTodos()
   }
   const closePopup = () => {

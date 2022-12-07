@@ -1,39 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class Todo {
-  todos = [
-    {
-      id: 1,
-      title: "name of the my awesome board it is really cool",
-      completed: true,
-    },
-    {
-      id: 2,
-      title:
-        "lorem lorem lorem loremloremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem",
-      completed: true,
-    },
-    {
-      id: 3,
-      title: "name of the my awesome board it is really cool",
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "name of the my awesome board it is really cool",
-      completed: false,
-    },
-    {
-      id: 5,
-      title: "name of the my awesome board it is really cool",
-      completed: false,
-    },
-    {
-      id: 6,
-      title: "name of the my awesome board it is really cool",
-      completed: false,
-    },
-  ];
+  todos = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -53,8 +21,21 @@ class Todo {
     fetch("http://localhost:3001/todos", { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        this.todos = [...json];
       });
+  }
+  fetchAddNewTodo(name) {
+    fetch("http://localhost:3001/todos", {
+      method: "POST",
+      headers: {
+        authorization: "a930b285-48bc-4fb0-af5d-2133c0eb4e79",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: name, completed: false }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
   }
 }
 

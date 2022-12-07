@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Cross } from "../../icons/Cross";
 import styles from "./Popup.module.scss";
+import todo from "../../store/todo";
 
 export const Popup = ({ active, setActive }) => {
+  const [textareaValue, setTextareaValue] = useState("");
+
   useEffect(() => {
     function closeByEscape(evt) {
       if (evt.key === "Escape") {
         setActive(false);
+        setTextareaValue("");
       }
     }
     if (active) {
@@ -16,6 +20,16 @@ export const Popup = ({ active, setActive }) => {
       };
     }
   }, [active]);
+
+  const addNewTodo = () => {
+    todo.fetchAddNewTodo(textareaValue);
+    setActive(false)
+    todo.fetchTodos();
+  }
+
+  const onChangeTextarea = (e) => {
+    setTextareaValue(e.target.value);
+  }
 
   return (
     <div className={styles.popup}>
@@ -27,8 +41,9 @@ export const Popup = ({ active, setActive }) => {
           cols="30"
           rows="5"
           className={styles.popup__textarea}
+          onChange={onChangeTextarea}
         ></textarea>
-        <button className={styles.popup__button}>Confirm</button>
+        <button className={styles.popup__button} onClick={addNewTodo}>Confirm</button>
         <div
           className={styles.popup__cross}
           onClick={() => {
