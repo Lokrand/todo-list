@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Login.module.scss";
+import { NavLink } from "react-router-dom";
 
 export const Login = () => {
   const [emailValue, setEmailValue] = useState("");
@@ -46,7 +47,7 @@ export const Login = () => {
           />
         </div>
         {buttonActive ? (
-          <button className={styles.login__button} onClick={login}>Login</button>
+          <NavLink to='/todos' className={styles.login__button} onClick={login}>Login</NavLink>
           
           ) : (  
             <button className={`${styles.login__button} ${styles.login__button_disabled}`} disabled>Login</button>
