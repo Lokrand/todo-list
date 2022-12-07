@@ -3,11 +3,15 @@ import styles from "./TodoList.module.scss";
 import { items } from '../../utils/constants';
 import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
-export const TodoList = () => {
+import todo from "../../store/todo";
+import { observer } from "mobx-react-lite";
+
+export const TodoList = observer(() => {
   const [popupActive, setPopupActive] = useState(false);
   
   const openPopup = () => {
-    setPopupActive(true);
+    // setPopupActive(true);
+    todo.fetchTodos()
   }
   const closePopup = () => {
     setPopupActive(false);
@@ -39,13 +43,13 @@ export const TodoList = () => {
         </div>
       </div>
       <div>
-        {items.map((el) => {
+        {todo.todos.map((el) => {
           return (
-            <TodoItem data={el}/>
+            <TodoItem key={el.id} data={el}/>
           )
         })}
       </div>
       {popupActive && <Popup active={popupActive} setActive={setPopupActive}/>}
     </section>
   );
-};
+});

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./TodoItem.module.scss";
 
 export const TodoItem = ({ data }) => {
-  
+
 
   return (
     <div className={styles.todo}>
@@ -13,7 +13,7 @@ export const TodoItem = ({ data }) => {
         <p>{data.title}</p>
       </div>
       <div className={styles.todo__item}>
-        {data.status ? (
+        {data.completed ? (
           <p className={styles.todo__status}>done</p>
         ) : (
           <p className={styles.todo__status_active}>undone</p>
