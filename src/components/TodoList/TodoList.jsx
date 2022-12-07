@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import styles from "./TodoList.module.scss";
 import { items } from '../../utils/constants';
 import { TodoItem } from "../TodoItem/TodoItem";
+import { Popup } from "../Popup/Popup";
 export const TodoList = () => {
   const [popupActive, setPopupActive] = useState(false);
   
   const openPopup = () => {
     setPopupActive(true);
   }
-  
+  const closePopup = () => {
+    setPopupActive(false);
+  }
+
   return (
     <section className={styles.todos}>
       <div className={styles.todos__filter}>
@@ -41,6 +45,7 @@ export const TodoList = () => {
           )
         })}
       </div>
+      {popupActive && <Popup active={popupActive} setActive={setPopupActive}/>}
     </section>
   );
 };
