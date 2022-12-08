@@ -12,18 +12,39 @@
     align-items: center;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: 1fr 4fr 2fr 3fr;
+    }
+  }
+  &__filterBlock {
+    display: flex;
+    column-gap: 40px;
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      row-gap: 20px;
+      text-align: center;
+    }
   }
   &__filter {
     display: flex;
     flex-direction: row;
-    column-gap: 40px;
-    margin-left: 40px;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    margin: 0 40px 30px;
+    @media screen and (max-width: 850px) {
+      margin: 0 0 30px;
+      flex-direction: column-reverse;
+      row-gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
   }
   &__buttons {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+    @media screen and (max-width: 400px) {
+      column-gap: 10px;
+    }
   }
   &__button {
     width: 100px;
@@ -37,6 +58,9 @@
     &:hover {
       opacity: 0.6;
       cursor: pointer;
+    }
+    @media screen and (max-width: 400px) {
+      width: 80px;
     }
   }
   &__number {
@@ -54,7 +78,6 @@
   &__addTodoButton {
     width: 250px;
     height: 40px;
-    margin-left: 150px;
     border: none;
     background:deepskyblue;
     border-radius: 10px;

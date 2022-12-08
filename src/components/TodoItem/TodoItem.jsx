@@ -1,8 +1,16 @@
 import React from "react";
 import styles from "./TodoItem.module.scss";
+import todo from "../../store/todo";
 
 export const TodoItem = ({ data }) => {
+  const removeTodo = () => {
+    todo.removeTodo(data.id);
+    todo.fetchTodos();
+  };
 
+  const changeStatus = () => {
+    todo.completeTodo(data.id);
+  };
 
   return (
     <div className={styles.todo}>
@@ -20,9 +28,18 @@ export const TodoItem = ({ data }) => {
         )}
       </div>
       <div className={styles.todo__buttons}>
-        <button className={styles.todo__done}>Done</button>
-        <button className={styles.todo__undone}>Undone</button>
-        <button className={styles.todo__remove}>Remove</button>
+        {data.completed ? (
+          <button className={styles.todo__undone} onClick={changeStatus}>
+            Undone
+          </button>
+        ) : (
+          <button className={styles.todo__done} onClick={changeStatus}>
+            Done
+          </button>
+        )}
+        <button className={styles.todo__remove} onClick={removeTodo}>
+          Remove
+        </button>
       </div>
     </div>
   );

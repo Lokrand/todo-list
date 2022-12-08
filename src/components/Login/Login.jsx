@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Login.module.scss";
 import { NavLink } from "react-router-dom";
+import todo from "../../store/todo";
 
 export const Login = () => {
   const [emailValue, setEmailValue] = useState("");
@@ -26,6 +27,7 @@ export const Login = () => {
     setEmailValue('')
     setPasswordValue('')
     setButtonActive(false)
+    todo.fetchTodos()
   }
 
   return (

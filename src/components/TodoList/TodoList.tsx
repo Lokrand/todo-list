@@ -17,14 +17,27 @@ export const TodoList = observer(() => {
     setPopupActive(false);
   }
 
+  const filterByAll = () => {
+    todo.fetchTodos()
+  }
+  const filterByDone = () => {
+    todo.filterByDone()
+  }
+  const filterByUndone = () => {
+    todo.filterByUndone()
+  }
+
   return (
     <section className={styles.todos}>
       <div className={styles.todos__filter}>
+        <div className={styles.todos__filterBlock}>
         <h2>Filter by:</h2>
         <div className={styles.todos__buttons}>
-          <button className={styles.todos__button}>all</button>
-          <button className={styles.todos__button}>done</button>
-          <button className={styles.todos__button}>undone</button>
+          <button className={styles.todos__button} onClick={filterByAll}>all</button>
+          <button className={styles.todos__button} onClick={filterByDone}>done</button>
+          <button className={styles.todos__button} onClick={filterByUndone}>undone</button>
+        </div>
+
         </div>
         <button className={styles.todos__addTodoButton} onClick={openPopup}>Add new todo</button>
       </div>

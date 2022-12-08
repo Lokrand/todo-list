@@ -6,8 +6,10 @@
   align-items: center;
   background-color: #1c1c21;
   &__title {
-    // margin-bottom: 50px;
     font-size: 36px;
+    @media screen and (max-width:499px) {
+      font-size: 30px;
+    }
   }
   &__inputs {
     display: flex;
@@ -19,6 +21,9 @@
     width: 400px;
     padding: 10px;
     border-radius: 20px;
+    @media screen and (max-width:499px) {
+      width: 300px;
+    }
   }
   &__block {
     width: 600px;

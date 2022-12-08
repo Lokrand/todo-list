@@ -23,8 +23,8 @@ export const Popup = ({ active, setActive }) => {
 
   const addNewTodo = () => {
     todo.fetchAddNewTodo(textareaValue);
-    setActive(false)
     todo.fetchTodos();
+    setActive(false)
   }
 
   const onChangeTextarea = (e) => {
@@ -35,14 +35,11 @@ export const Popup = ({ active, setActive }) => {
     <div className={styles.popup}>
       <div className={styles.popup__content}>
         <h3 className={styles.popup__title}>Add a new task</h3>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="5"
+        <input
+          placeholder="Enter a new task"
           className={styles.popup__textarea}
           onChange={onChangeTextarea}
-        ></textarea>
+        ></input>
         <button className={styles.popup__button} onClick={addNewTodo}>Confirm</button>
         <div
           className={styles.popup__cross}

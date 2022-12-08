@@ -6,24 +6,57 @@ class Todo {
   constructor() {
     makeAutoObservable(this);
   }
+
   addTodo(todo) {
     this.todos.push(todo);
   }
+
   removeTodo(id) {
-    this.todos = this.todos.filter((el) => el.id !== id);
+    fetch(`http://localhost:3001/todos/${id}`, { method: "DELETE" })
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.error(err));
   }
+
   completeTodo(id) {
     this.todos = this.todos.map((el) =>
       el.id === id ? { ...el, completed: !el.completed } : el
     );
   }
+
+  setTodos = (todo) => {
+    this.todo = todo;
+  };
+
+  filterByDone() {
+    fetch("http://localhost:3001/todos?completed=true", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        this.todos = [...json];
+      })
+      .catch((err) => console.error(err));
+  }
+
+  filterByUndone() {
+    fetch("http://localhost:3001/todos?completed=false", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        this.todos = [...json];
+      })
+      .catch((err) => console.error(err));
+  }
+
   fetchTodos() {
     fetch("http://localhost:3001/todos", { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
-      });
+      })
+      .catch((err) => console.error(err));
   }
+
+  fetchCompleteTodo() {}
+
   fetchAddNewTodo(name) {
     fetch("http://localhost:3001/todos", {
       method: "POST",
@@ -34,7 +67,7 @@ class Todo {
       body: JSON.stringify({ title: name, completed: false }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then(this.setTodos)
       .catch((err) => console.error(err));
   }
 }

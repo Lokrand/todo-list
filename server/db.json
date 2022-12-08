@@ -2,51 +2,36 @@
   "todos": [
     {
       "id": 1,
-      "title": "name of the my awesome board it is really cool",
+      "title": "name of the my awesome board it is really cool name of the my awesome board it is really cool name of the my awesome board it is really cool",
       "completed": true
-    },
-    {
-      "id": 2,
-      "title": "lorem lorem lorem loremloremlorem lorem lorem lorem lorem lorem lorem lorem lorem lorem",
-      "completed": true
-    },
-    {
-      "id": 3,
-      "title": "name of the my awesome board it is really cool",
-      "completed": false
-    },
-    {
-      "id": 4,
-      "title": "name of the my awesome board it is really cool",
-      "completed": false
     },
     {
       "id": 5,
       "title": "name of the my awesome board it is really cool",
-      "completed": false
+      "completed": true
     },
     {
-      "id": 6,
-      "title": "name of the my awesome board it is really cool",
-      "completed": false
+      "title": "1",
+      "completed": false,
+      "id": 6
     },
     {
-      "title": "name of the my awesome board it is really cool",
+      "title": "123",
       "completed": false,
       "id": 7
     },
     {
-      "title": "assdasdad",
+      "title": "1111",
       "completed": false,
       "id": 8
     },
     {
-      "title": "g3qgq3gq3gq3rfewrgfewrg",
+      "title": "Моя супер крутая задача",
       "completed": false,
       "id": 9
     },
     {
-      "title": "wqwqwdqwdqwd",
+      "title": "Моя новая и уникальная задача (не плагиат) ",
       "completed": false,
       "id": 10
     }
