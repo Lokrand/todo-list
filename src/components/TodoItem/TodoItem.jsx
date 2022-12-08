@@ -5,11 +5,10 @@ import todo from "../../store/todo";
 export const TodoItem = ({ data }) => {
   const removeTodo = () => {
     todo.removeTodo(data.id);
-    todo.fetchTodos();
   };
 
   const changeStatus = () => {
-    todo.completeTodo(data.id);
+    todo.fetchCompleteTodo(data);
   };
 
   return (

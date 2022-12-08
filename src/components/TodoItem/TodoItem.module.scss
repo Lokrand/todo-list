@@ -10,6 +10,13 @@
   @media screen and (max-width: 1200px) {
     grid-template-columns: 1fr 4fr 2fr 3fr;
   }
+  @media screen and (max-width: 800px) {
+    grid-area: "a c d"
+               "b b b";
+    &:first-child {
+      border-top: 1px solid #fff;
+    }
+  }
   &__item {
     min-height: 40px;
     padding: 0 10px;
@@ -24,6 +31,11 @@
     justify-content: center;
     align-items: center;
     column-gap: 15px;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      row-gap: 10px;
+      margin: 10px 0;
+    }
   }
   &__status {
     color: green;

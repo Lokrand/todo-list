@@ -13,8 +13,7 @@ class Todo {
 
   removeTodo(id) {
     fetch(`http://localhost:3001/todos/${id}`, { method: "DELETE" })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
+      .then(() => this.fetchTodos())
       .catch((err) => console.error(err));
   }
 
@@ -55,7 +54,15 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchCompleteTodo() {}
+  fetchCompleteTodo(todo) {
+    fetch(`http://localhost:3001/todos/${todo.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: todo.title, completed: !todo.completed }),
+    })
+      .then(() => this.fetchTodos())
+      .catch((err) => console.error(err));
+  }
 
   fetchAddNewTodo(name) {
     fetch("http://localhost:3001/todos", {
