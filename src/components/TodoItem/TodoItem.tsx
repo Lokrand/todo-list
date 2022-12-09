@@ -1,13 +1,15 @@
-import React from "react";
+import React, {FC} from "react";
 import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
+import { ITodo } from "../../utils/types";
 
-export const TodoItem = ({ data }) => {
-  const removeTodo = () => {
+export const TodoItem:FC<ITodo> = ({ data }) => {
+  
+  const removeTodo = ():void => {
     todo.removeTodo(data.id);
   };
 
-  const changeStatus = () => {
+  const changeStatus = ():void => {
     todo.fetchCompleteTodo(data);
   };
 

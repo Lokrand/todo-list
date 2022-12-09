@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import styles from "./Login.module.scss";
 import { NavLink } from "react-router-dom";
 import todo from "../../store/todo";
 
-export const Login = () => {
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
+export const Login:FC = () => {
+  const [emailValue, setEmailValue] = useState<string>("");
+  const [passwordValue, setPasswordValue] = useState<string>("");
   const [buttonActive, setButtonActive] = useState(false);
 
   useEffect(() => {
-    if (emailValue.length > 0 && passwordValue > 0) {
+    if (emailValue.length > 0 && passwordValue.length > 0) {
       setButtonActive(true)
     } else {
       setButtonActive(false)
     }
   }, [emailValue, passwordValue])
 
-  const changeEmail = (e) => {
+  const changeEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setEmailValue(e.target.value);
   };
-  const changePassword = (e) => {
+  const changePassword = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setPasswordValue(e.target.value);
   };
 
-  const login = () => {
+  const login = (): void => {
     setEmailValue('')
     setPasswordValue('')
     setButtonActive(false)

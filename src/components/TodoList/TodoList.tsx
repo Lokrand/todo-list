@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import styles from "./TodoList.module.scss";
-import { items } from '../../utils/constants';
 import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
 import todo from "../../store/todo";
 import { observer } from "mobx-react-lite";
 
-export const TodoList = observer(() => {
-  const [popupActive, setPopupActive] = useState(false);
+export const TodoList:FC = observer(() => {
+  const [popupActive, setPopupActive] = useState<boolean>(false);
   
-  const openPopup = () => {
+  const openPopup = ():void => {
     setPopupActive(true);
     todo.fetchTodos()
   }
-  const closePopup = () => {
+  const closePopup = ():void => {
     setPopupActive(false);
   }
 
-  const filterByAll = () => {
+  const filterByAll = ():void => {
     todo.fetchTodos()
   }
-  const filterByDone = () => {
+  const filterByDone = ():void => {
     todo.filterByDone()
   }
-  const filterByUndone = () => {
+  const filterByUndone = ():void => {
     todo.filterByUndone()
   }
 
@@ -58,7 +57,7 @@ export const TodoList = observer(() => {
       <div>
         {todo.todos.map((el) => {
           return (
-            <TodoItem key={el.id} data={el}/>
+            <TodoItem key={el.id} data={el} />
           )
         })}
       </div>

@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FC, KeyboardEvent } from "react";
 import { Cross } from "../../icons/Cross";
 import styles from "./Popup.module.scss";
 import todo from "../../store/todo";
+import { IPopup } from "../../utils/types";
 
-export const Popup = ({ active, setActive }) => {
-  const [textareaValue, setTextareaValue] = useState("");
+export const Popup:FC<IPopup> = ({ active, setActive }) => {
+  const [textareaValue, setTextareaValue] = useState<string>("");
 
   useEffect(() => {
-    function closeByEscape(evt) {
+    function closeByEscape(evt: any):void {
       if (evt.key === "Escape") {
         setActive(false);
         setTextareaValue("");
@@ -27,7 +28,7 @@ export const Popup = ({ active, setActive }) => {
     setActive(false)
   }
 
-  const onChangeTextarea = (e) => {
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextareaValue(e.target.value);
   }
 
@@ -40,7 +41,7 @@ export const Popup = ({ active, setActive }) => {
         <input
           placeholder="Enter a new task"
           className={styles.popup__textarea}
-          onChange={onChangeTextarea}
+          onChange={onChangeInput}
           ></input>
         {textareaValue.length > 0 ? (
           <button type="submit" className={styles.popup__button} onClick={addNewTodo}>Confirm</button>
