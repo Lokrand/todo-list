@@ -2,10 +2,12 @@ import React, {FC} from "react";
 import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
 import { ITodo } from "../../types/types";
+import { observer } from "mobx-react-lite";
 
-export const TodoItem:FC<ITodo> = (item:ITodo) => {
+export const TodoItem:FC<{item: ITodo}> = observer((item) => {
   
   // i dont what is it, but its worked :)
+  console.log('item', item)
   const element = JSON.parse(JSON.stringify(item.item))
 
   const removeTodo = ():void => {
@@ -47,4 +49,4 @@ export const TodoItem:FC<ITodo> = (item:ITodo) => {
       </div>
     </div>
   );
-};
+});
