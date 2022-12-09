@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
-import { ITodo } from "../../types/types";
+import { ITodo } from "../../types/todo";
 import { observer } from "mobx-react-lite";
 
 export const TodoItem:FC<{item: ITodo}> = observer((item) => {

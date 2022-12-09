@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { ITodo } from "../types/types";
+import { ITodo } from "../types/todo";
 
 class Todo {
   todos: ITodo[] = [];

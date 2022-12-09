@@ -1,13 +1,15 @@
 import React, { useState, useEffect, FC } from "react";
 import styles from "./Login.module.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import todo from "../../store/todo";
+import user from "../../store/user";
+import { observer } from "mobx-react-lite";
 
-export const Login:FC = () => {
+export const Login:FC = observer(() => {
   const [emailValue, setEmailValue] = useState<string>("");
   const [passwordValue, setPasswordValue] = useState<string>("");
   const [buttonActive, setButtonActive] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (emailValue.length > 0 && passwordValue.length > 0) {
       setButtonActive(true)
@@ -24,11 +26,17 @@ export const Login:FC = () => {
   };
 
   const login = (): void => {
+    user.fetchRegisterUser(emailValue, passwordValue)
     setEmailValue('')
     setPasswordValue('')
     setButtonActive(false)
     todo.fetchTodos()
   }
+  useEffect(() => {
+    if (user.currentUser){
+       return navigate("/todos");
+    }
+ },[user.currentUser]);
 
   return (
     <section className={styles.login}>
@@ -49,7 +57,7 @@ export const Login:FC = () => {
           />
         </div>
         {buttonActive ? (
-          <NavLink to='/todos' className={styles.login__button} onClick={login}>Login</NavLink>
+          <button className={styles.login__button} onClick={login}>Login</button>
           
           ) : (  
             <button className={`${styles.login__button} ${styles.login__button_disabled}`} disabled>Login</button>
@@ -57,4 +65,4 @@ export const Login:FC = () => {
       </div>
     </section>
   );
-};
+});

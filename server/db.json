@@ -2,17 +2,12 @@
   "todos": [
     {
       "title": "Azazazazazaza",
-      "completed": true,
+      "completed": false,
       "id": 1
     },
     {
-      "title": "name of the my awesome board it is really cool",
-      "completed": true,
-      "id": 5
-    },
-    {
       "title": "1111",
-      "completed": false,
+      "completed": true,
       "id": 8
     },
     {
@@ -27,13 +22,8 @@
     },
     {
       "title": "111",
-      "completed": true,
+      "completed": false,
       "id": 19
-    },
-    {
-      "title": "123",
-      "completed": true,
-      "id": 20
     },
     {
       "title": "1111111111111111",
@@ -59,7 +49,58 @@
       "title": "123",
       "completed": false,
       "id": 25
+    },
+    {
+      "title": "123321",
+      "completed": false,
+      "id": 26
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$V67OcjFSKpiwLT5cwy7wIeIj9x3fb1FFlP2rT1q/x.zajOqjxVfWm",
+      "id": 1
+    },
+    {
+      "email": "olivie@mail.com",
+      "password": "$2a$10$iXVAQFIoIwJP39DeA7KpBu0/kcwB9Nogi/zUTdjT/R4OrpgiiCuZe",
+      "id": 2
+    },
+    {
+      "email": "oie@mail.com",
+      "password": "$2a$10$ahC/er9DMIw2w.EYsfNywOe9OgfLtNZMSMghqiIwbgiwpet0NwG6i",
+      "id": 3
+    },
+    {
+      "email": "oie@ma",
+      "password": "$2a$10$Vbv8Ou2amBB44VRxvxOk5OAaJd4qQ8bNvl6fA5R5tI/NBBRFikEuy",
+      "id": 4
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$dZxCCVLeoOQioXxC7K0hWueR.dDQAq8Ehm2/14I9ty5m0U0HF6Pce",
+      "id": 5
+    },
+    {
+      "email": "user@gmail.com1",
+      "password": "$2a$10$pA.lnLHKtLzdJt3uIRVkiOqGzgHA5R6tkea7O4yj22G5pNNxmqrsq",
+      "id": 6
+    },
+    {
+      "email": "user@gmail.com11",
+      "password": "$2a$10$yMFjflYm.cxFxlhhH1fShOvoG1gwtgCmV9uWL/eXzkBglf60mssxG",
+      "id": 7
+    },
+    {
+      "email": "user@gmail.com111",
+      "password": "$2a$10$S8zPBrWApdEDOPsUMiNB3evbK3idAuMMANRrBLru1obGPiVbi4vOW",
+      "id": 8
+    },
+    {
+      "email": "user@gmail.com1111",
+      "password": "$2a$10$AcBQqRXZNo26.QQEkU0G1Olm/PylYS9JNhMpGkCEp9IPbgEXjZ2oW",
+      "id": 9
+    }
+  ]
 }

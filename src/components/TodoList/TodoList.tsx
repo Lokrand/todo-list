@@ -4,7 +4,7 @@ import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
 import todo from "../../store/todo";
 import { observer } from "mobx-react-lite";
-import { ITodo } from "../../types/types";
+import { ITodo } from "../../types/todo";
 
 export const TodoList:FC<ITodo> = observer(() => {
   const [popupActive, setPopupActive] = useState<boolean>(false);
