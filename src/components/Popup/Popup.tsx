@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC, KeyboardEvent } from "react";
 import { Cross } from "../../icons/Cross";
 import styles from "./Popup.module.scss";
 import todo from "../../store/todo";
-import { IPopup } from "../../utils/types";
+import { IPopup } from "../../types/types";
 
 export const Popup:FC<IPopup> = ({ active, setActive }) => {
   const [textareaValue, setTextareaValue] = useState<string>("");

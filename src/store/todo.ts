@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { ITodo } from "../utils/types";
+import { ITodo } from "../types/types";
 
 class Todo {
   todos: ITodo[] = [];
@@ -8,27 +8,23 @@ class Todo {
     makeAutoObservable(this);
   }
 
-  addTodo(todo:ITodo):void {
+  addTodo(todo: ITodo): void {
     this.todos.push(todo);
   }
 
-  removeTodo(id:number) {
+  removeTodo(id: number):void {
     fetch(`http://localhost:3001/todos/${id}`, { method: "DELETE" })
       .then(() => this.fetchTodos())
       .catch((err) => console.error(err));
   }
 
-  completeTodo(id:number) {
+  completeTodo(id: number):void {
     this.todos = this.todos.map((el) =>
       el.id === id ? { ...el, completed: !el.completed } : el
     );
   }
 
-  // setTodos = (todo:ITodo) => {
-  //   this.todo = todo;
-  // };
-
-  filterByDone() {
+  filterByDone():void {
     fetch("http://localhost:3001/todos?completed=true", { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
@@ -37,7 +33,7 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  filterByUndone() {
+  filterByUndone():void {
     fetch("http://localhost:3001/todos?completed=false", { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
@@ -46,17 +42,17 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchTodos() {
+  fetchTodos():void {
     fetch("http://localhost:3001/todos", { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
-        console.log(json)
+        console.log(json);
       })
       .catch((err) => console.error(err));
   }
 
-  fetchCompleteTodo(todo:ITodo) {
+  fetchCompleteTodo(todo: ITodo):void {
     fetch(`http://localhost:3001/todos/${todo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -66,7 +62,7 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchAddNewTodo(name:string) {
+  fetchAddNewTodo(name: string):void {
     fetch("http://localhost:3001/todos", {
       method: "POST",
       headers: {

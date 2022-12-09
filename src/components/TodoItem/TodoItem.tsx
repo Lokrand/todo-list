@@ -1,9 +1,10 @@
 import React, {FC} from "react";
 import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
-import { ITodo } from "../../utils/types";
+import { ITodo } from "../../types/types";
 
 export const TodoItem:FC<ITodo> = (item:ITodo) => {
+  
   // i dont what is it, but its worked :)
   const element = JSON.parse(JSON.stringify(item.item))
 
