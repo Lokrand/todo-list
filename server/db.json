@@ -7,28 +7,13 @@
     },
     {
       "title": "name of the my awesome board it is really cool",
-      "completed": false,
+      "completed": true,
       "id": 5
     },
     {
       "title": "1111",
-      "completed": true,
+      "completed": false,
       "id": 8
-    },
-    {
-      "title": "3",
-      "completed": true,
-      "id": 11
-    },
-    {
-      "title": "123 321 123 321 123 321",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "title": "my new awesime task",
-      "completed": false,
-      "id": 13
     },
     {
       "title": "1212",
@@ -37,7 +22,7 @@
     },
     {
       "title": "a new task",
-      "completed": false,
+      "completed": true,
       "id": 17
     },
     {
