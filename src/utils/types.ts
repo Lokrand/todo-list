@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Interface } from "readline";
 
 export interface ITodo {
@@ -10,5 +11,5 @@ export interface ITodo {
 
 export interface IPopup {
   active: boolean,
-  setActive: (arg:boolean) => {},
+  setActive: Dispatch<SetStateAction<boolean>>,
 }
