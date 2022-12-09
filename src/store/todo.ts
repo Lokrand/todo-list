@@ -1,31 +1,32 @@
 import { makeAutoObservable } from "mobx";
+import { ITodo } from "../utils/types";
 
 class Todo {
-  todos = [];
+  todos: ITodo[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  addTodo(todo) {
+  addTodo(todo:ITodo):void {
     this.todos.push(todo);
   }
 
-  removeTodo(id) {
+  removeTodo(id:number) {
     fetch(`http://localhost:3001/todos/${id}`, { method: "DELETE" })
       .then(() => this.fetchTodos())
       .catch((err) => console.error(err));
   }
 
-  completeTodo(id) {
+  completeTodo(id:number) {
     this.todos = this.todos.map((el) =>
       el.id === id ? { ...el, completed: !el.completed } : el
     );
   }
 
-  setTodos = (todo) => {
-    this.todo = todo;
-  };
+  // setTodos = (todo:ITodo) => {
+  //   this.todo = todo;
+  // };
 
   filterByDone() {
     fetch("http://localhost:3001/todos?completed=true", { method: "GET" })
@@ -54,7 +55,7 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchCompleteTodo(todo) {
+  fetchCompleteTodo(todo:ITodo) {
     fetch(`http://localhost:3001/todos/${todo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -64,7 +65,7 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchAddNewTodo(name) {
+  fetchAddNewTodo(name:string) {
     fetch("http://localhost:3001/todos", {
       method: "POST",
       headers: {
@@ -74,7 +75,7 @@ class Todo {
       body: JSON.stringify({ title: name, completed: false }),
     })
       .then((res) => res.json())
-      .then(this.setTodos)
+      .then(this.addTodo)
       .catch((err) => console.error(err));
   }
 }

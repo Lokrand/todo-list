@@ -4,8 +4,9 @@ import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
 import todo from "../../store/todo";
 import { observer } from "mobx-react-lite";
+import { ITodo } from "../../utils/types";
 
-export const TodoList:FC = observer(() => {
+export const TodoList:FC<ITodo> = observer(() => {
   const [popupActive, setPopupActive] = useState<boolean>(false);
   
   const openPopup = ():void => {
@@ -57,7 +58,7 @@ export const TodoList:FC = observer(() => {
       <div>
         {todo.todos.map((el) => {
           return (
-            <TodoItem key={el.id} data={el} />
+            <TodoItem key={el.id} todo={el} />
           )
         })}
       </div>
