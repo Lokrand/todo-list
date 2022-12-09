@@ -3,20 +3,37 @@ import { Interface } from "readline";
 import { ArrowFunction } from "typescript";
 
 export interface ITodo {
-  todo: {
-    title: string,
-    completed: boolean,
-    id: number,
-    removeTodo: (id:number) => {},
-    fetchCompleteTodo: (todo: {
-      title: string,
-      completed: boolean,
-      id: number,
-    }) => {},
+  item?: {
+    // todo: {
+    //   title: string,
+    //   completed: boolean,
+    //   id: number,
+    //   removeTodo: (id:number) => {},
+    //   fetchCompleteTodo: (todo: {
+    //     title: string,
+    //     completed: boolean,
+    //     id: number,
+    //   }) => {},
+    // },
+    title?: any,
+    completed?: boolean,
+    id?: number | undefined,
+    // removeTodo: (id:number) => {},
+    // fetchCompleteTodo: (todo: {
+    //   title: string,
+    //   completed: boolean,
+    //   id: number,
+    // }) => {},
   }
-  id: number,
-  completed: boolean,
-  title: string,
+  // removeTodo: (id:number) => {},
+  // fetchCompleteTodo: (todo: {
+  //   title: string,
+  //   completed: boolean,
+  //   id: number,
+  // }) => {},
+  id?: any,
+  completed?: boolean,
+  title?: string | undefined,
 }
 
 export interface IPopup {

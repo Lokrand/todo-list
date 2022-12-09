@@ -8,7 +8,7 @@ import { ITodo } from "../../utils/types";
 
 export const TodoList:FC<ITodo> = observer(() => {
   const [popupActive, setPopupActive] = useState<boolean>(false);
-  
+  // console.log(todo)
   const openPopup = ():void => {
     setPopupActive(true);
     todo.fetchTodos()
@@ -57,8 +57,9 @@ export const TodoList:FC<ITodo> = observer(() => {
       </div>
       <div>
         {todo.todos.map((el) => {
+          // console.log('el', el)
           return (
-            <TodoItem key={el.id} todo={el} />
+            <TodoItem key={el.id} item={el} />
           )
         })}
       </div>

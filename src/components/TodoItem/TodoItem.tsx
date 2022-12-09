@@ -3,33 +3,35 @@ import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
 import { ITodo } from "../../utils/types";
 
-export const TodoItem:FC<ITodo> = ({ todo }) => {
-  
+export const TodoItem:FC<ITodo> = (item:ITodo) => {
+  // i dont what is it, but its worked :)
+  const element = JSON.parse(JSON.stringify(item.item))
+
   const removeTodo = ():void => {
-    todo.removeTodo(todo.id);
+    todo.removeTodo(element.id);
   };
 
   const changeStatus = ():void => {
-    todo.fetchCompleteTodo(todo);
+    todo.fetchCompleteTodo(element);
   };
 
   return (
     <div className={styles.todo}>
       <div className={styles.todo__item}>
-        <p>#{todo.id}</p>
+        <p>#{element.id}</p>
       </div>
       <div className={styles.todo__item}>
-        <p>{todo.title}</p>
+        <p>{element.title}</p>
       </div>
       <div className={styles.todo__item}>
-        {todo.completed ? (
+        {element.completed ? (
           <p className={styles.todo__status}>done</p>
         ) : (
           <p className={styles.todo__status_active}>undone</p>
         )}
       </div>
       <div className={styles.todo__buttons}>
-        {todo.completed ? (
+        {element.completed ? (
           <button className={styles.todo__undone} onClick={changeStatus}>
             Undone
           </button>
