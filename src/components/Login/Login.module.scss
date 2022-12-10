@@ -7,7 +7,7 @@
   background-color: #1c1c21;
   &__title {
     font-size: 36px;
-    @media screen and (max-width:499px) {
+    @media screen and (max-width: 499px) {
       font-size: 30px;
     }
   }
@@ -21,7 +21,7 @@
     width: 400px;
     padding: 10px;
     border-radius: 20px;
-    @media screen and (max-width:499px) {
+    @media screen and (max-width: 499px) {
       width: 300px;
     }
   }

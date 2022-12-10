@@ -1,20 +1,18 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import styles from "./TodoItem.module.scss";
 import todo from "../../store/todo";
 import { ITodo } from "../../types/todo";
 import { observer } from "mobx-react-lite";
 
-export const TodoItem:FC<{item: ITodo}> = observer((item) => {
-  
+export const TodoItem: FC<{ item: ITodo }> = observer((item) => {
   // i dont what is it, but its worked :)
-  console.log('item', item)
-  const element = JSON.parse(JSON.stringify(item.item))
+  const element = JSON.parse(JSON.stringify(item.item));
 
-  const removeTodo = ():void => {
+  const removeTodo = (): void => {
     todo.removeTodo(element.id);
   };
 
-  const changeStatus = ():void => {
+  const changeStatus = (): void => {
     todo.fetchCompleteTodo(element);
   };
 
