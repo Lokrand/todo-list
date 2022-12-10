@@ -14,6 +14,7 @@ export const Login: FC = observer(() => {
   );
   const navigate = useNavigate();
   useEffect(() => {
+    console.log(checkEmail.test(emailValue))
     if (checkEmail.test(emailValue) && passwordValue.length > 5) {
       setButtonActive(true);
     } else {

@@ -47,7 +47,6 @@ class Todo {
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
-        console.log(json);
       })
       .catch((err) => console.error(err));
   }
