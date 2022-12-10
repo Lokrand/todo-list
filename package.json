@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -w db.json -m ./node_modules/json-server-auth --port 3001",
+    "server": "node server.js",
+    "serverOld": "json-server -w db.json -m ./node_modules/json-server-auth --port 3001",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { ITodo } from "../types/todo";
+import { localUrl } from "../utils/constants";
 
 class Todo {
   todos: ITodo[] = [];
@@ -12,20 +13,24 @@ class Todo {
     this.todos.push(todo);
   }
 
-  removeTodo(id: number):void {
-    fetch(`http://localhost:3001/todos/${id}`, { method: "DELETE" })
+  removeTodo(id: number): void {
+    fetch(`${localUrl}/todos/${id}`, { method: "DELETE" ,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
       .then(() => this.fetchTodos())
       .catch((err) => console.error(err));
   }
 
-  completeTodo(id: number):void {
+  completeTodo(id: number): void {
     this.todos = this.todos.map((el) =>
       el.id === id ? { ...el, completed: !el.completed } : el
     );
   }
 
-  filterByDone():void {
-    fetch("http://localhost:3001/todos?completed=true", { method: "GET" })
+  filterByDone(): void {
+    fetch(`${localUrl}/todos?completed=true`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
@@ -33,8 +38,8 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  filterByUndone():void {
-    fetch("http://localhost:3001/todos?completed=false", { method: "GET" })
+  filterByUndone(): void {
+    fetch(`${localUrl}/todos?completed=false`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
@@ -42,8 +47,13 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchTodos():void {
-    fetch("http://localhost:3001/todos", { method: "GET" })
+  fetchTodos(): void {
+    fetch(`${localUrl}/todos`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
@@ -51,8 +61,8 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchCompleteTodo(todo: ITodo):void {
-    fetch(`http://localhost:3001/todos/${todo.id}`, {
+  fetchCompleteTodo(todo: ITodo): void {
+    fetch(`${localUrl}/todos/${todo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: todo.title, completed: !todo.completed }),
@@ -61,11 +71,10 @@ class Todo {
       .catch((err) => console.error(err));
   }
 
-  fetchAddNewTodo(name: string):void {
-    fetch("http://localhost:3001/todos", {
+  fetchAddNewTodo(name: string): void {
+    fetch(`${localUrl}/todos`, {
       method: "POST",
       headers: {
-        authorization: "a930b285-48bc-4fb0-af5d-2133c0eb4e79",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ title: name, completed: false }),

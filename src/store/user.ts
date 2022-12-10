@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { IUser } from "../types/user";
+import { localUrl } from "../utils/constants";
 
 class User {
   currentUser!: IUser;
@@ -12,11 +13,10 @@ class User {
     this.currentUser = user;
   }
 
-  fetchRegisterUser(email:string, password:string): void {
-    fetch("http://localhost:3001/register", {
+  fetchRegisterUser(email: string, password: string): void {
+    fetch(`${localUrl}/register`, {
       method: "POST",
       headers: {
-        authorization: "a930b285-48bc-4fb0-af5d-2133c0eb4e79",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),

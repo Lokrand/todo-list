@@ -1,39 +1,9 @@
 {
   "todos": [
     {
-      "title": "Azazazazazaza",
-      "completed": false,
-      "id": 1
-    },
-    {
-      "title": "1111",
-      "completed": true,
-      "id": 8
-    },
-    {
-      "title": "112123123",
-      "completed": false,
-      "id": 18
-    },
-    {
-      "title": "111",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "title": "sdasdasdasdasdasd",
-      "completed": true,
-      "id": 22
-    },
-    {
       "title": "ya yayayayayay",
-      "completed": false,
-      "id": 23
-    },
-    {
-      "title": "123321123321",
       "completed": true,
-      "id": 24
+      "id": 23
     },
     {
       "title": "wqqwqwdqwd",
@@ -44,68 +14,38 @@
       "title": "new task",
       "completed": true,
       "id": 26
+    },
+    {
+      "title": "1",
+      "completed": false,
+      "id": 28
+    },
+    {
+      "title": "new task",
+      "completed": false,
+      "id": 30
+    },
+    {
+      "title": "1",
+      "completed": true,
+      "id": 32
     }
   ],
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$V67OcjFSKpiwLT5cwy7wIeIj9x3fb1FFlP2rT1q/x.zajOqjxVfWm",
+      "email": "12212@mail.ru",
+      "password": "$2a$10$SQqXpb8VwfIU5MQZuxiMweg7KjXalYYyX8Mw04ew8nUg9axx4vW22",
       "id": 1
     },
     {
-      "email": "olivie@mail.com",
-      "password": "$2a$10$iXVAQFIoIwJP39DeA7KpBu0/kcwB9Nogi/zUTdjT/R4OrpgiiCuZe",
+      "email": "eefwef@mail.ru",
+      "password": "$2a$10$LEXEExG2W2ihxAwnz8oaf.nA2H8lj72qS4Tr/PF6zcLlwXxeL8nDO",
       "id": 2
     },
     {
-      "email": "oie@mail.com",
-      "password": "$2a$10$ahC/er9DMIw2w.EYsfNywOe9OgfLtNZMSMghqiIwbgiwpet0NwG6i",
+      "email": "weeeeeee@mail.ru",
+      "password": "$2a$10$9GYZtkG64dKqkMP9KVEetOf3I5qmT1wDfeNyaFBSRIT4pzXv.5Cda",
       "id": 3
-    },
-    {
-      "email": "oie@ma",
-      "password": "$2a$10$Vbv8Ou2amBB44VRxvxOk5OAaJd4qQ8bNvl6fA5R5tI/NBBRFikEuy",
-      "id": 4
-    },
-    {
-      "email": "user@gmail.com",
-      "password": "$2a$10$dZxCCVLeoOQioXxC7K0hWueR.dDQAq8Ehm2/14I9ty5m0U0HF6Pce",
-      "id": 5
-    },
-    {
-      "email": "user@gmail.com1",
-      "password": "$2a$10$pA.lnLHKtLzdJt3uIRVkiOqGzgHA5R6tkea7O4yj22G5pNNxmqrsq",
-      "id": 6
-    },
-    {
-      "email": "user@gmail.com11",
-      "password": "$2a$10$yMFjflYm.cxFxlhhH1fShOvoG1gwtgCmV9uWL/eXzkBglf60mssxG",
-      "id": 7
-    },
-    {
-      "email": "user@gmail.com111",
-      "password": "$2a$10$S8zPBrWApdEDOPsUMiNB3evbK3idAuMMANRrBLru1obGPiVbi4vOW",
-      "id": 8
-    },
-    {
-      "email": "user@gmail.com1111",
-      "password": "$2a$10$AcBQqRXZNo26.QQEkU0G1Olm/PylYS9JNhMpGkCEp9IPbgEXjZ2oW",
-      "id": 9
-    },
-    {
-      "email": "uchiha123123@gmail.com",
-      "password": "$2a$10$dFFn6HvPL5qd87t8rvvrQeijKm0kblXt7R3hwF7CLK1H8q2PSGr3q",
-      "id": 10
-    },
-    {
-      "email": "newUSer@gmail.com",
-      "password": "$2a$10$067dEw6vrWg5e3FjNlzL6.UWaUhQ4mLru2idV.o7AURNd8fYRnGL6",
-      "id": 11
-    },
-    {
-      "email": "Uchqwd@mail.ru",
-      "password": "$2a$10$PESppXq3ZhBgmEjtBsMr4OnaoatrYuDqevKmFsevl7p/y/DgLSphq",
-      "id": 12
     }
   ]
 }
