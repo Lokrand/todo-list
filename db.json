@@ -12,7 +12,7 @@
     },
     {
       "title": "112123123",
-      "completed": true,
+      "completed": false,
       "id": 18
     },
     {
@@ -37,8 +37,13 @@
     },
     {
       "title": "wqqwqwdqwd",
-      "completed": false,
+      "completed": true,
       "id": 25
+    },
+    {
+      "title": "new task",
+      "completed": true,
+      "id": 26
     }
   ],
   "users": [
@@ -96,6 +101,11 @@
       "email": "newUSer@gmail.com",
       "password": "$2a$10$067dEw6vrWg5e3FjNlzL6.UWaUhQ4mLru2idV.o7AURNd8fYRnGL6",
       "id": 11
+    },
+    {
+      "email": "Uchqwd@mail.ru",
+      "password": "$2a$10$PESppXq3ZhBgmEjtBsMr4OnaoatrYuDqevKmFsevl7p/y/DgLSphq",
+      "id": 12
     }
   ]
 }
