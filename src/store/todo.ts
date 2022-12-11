@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { ITodo } from "../types/todo";
-import { ghPagesUrl } from "../utils/constants";
+import { baseUrl } from "../utils/constants";
 
 class Todo {
   todos: ITodo[] = [];
@@ -14,7 +14,7 @@ class Todo {
   }
 
   removeTodo(id: number): void {
-    fetch(`${ghPagesUrl}/todos/${id}`, { method: "DELETE" ,
+    fetch(`${baseUrl}/todos/${id}`, { method: "DELETE" ,
     headers: {
       "Content-Type": "application/json",
     },
@@ -30,7 +30,7 @@ class Todo {
   }
 
   filterByDone(): void {
-    fetch(`${ghPagesUrl}/todos?completed=true`, { method: "GET" })
+    fetch(`${baseUrl}/todos?completed=true`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
@@ -39,7 +39,7 @@ class Todo {
   }
 
   filterByUndone(): void {
-    fetch(`${ghPagesUrl}/todos?completed=false`, { method: "GET" })
+    fetch(`${baseUrl}/todos?completed=false`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         this.todos = [...json];
@@ -48,7 +48,7 @@ class Todo {
   }
 
   fetchTodos(): void {
-    fetch(`${ghPagesUrl}/todos`, {
+    fetch(`${baseUrl}/todos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ class Todo {
   }
 
   fetchCompleteTodo(todo: ITodo): void {
-    fetch(`${ghPagesUrl}/todos/${todo.id}`, {
+    fetch(`${baseUrl}/todos/${todo.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: todo.title, completed: !todo.completed }),
@@ -72,7 +72,7 @@ class Todo {
   }
 
   fetchAddNewTodo(name: string): void {
-    fetch(`${ghPagesUrl}/todos`, {
+    fetch(`${baseUrl}/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

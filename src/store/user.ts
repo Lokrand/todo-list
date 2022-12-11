@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { IUser } from "../types/user";
-import { ghPagesUrl } from "../utils/constants";
+import { baseUrl } from "../utils/constants";
 
 class User {
   currentUser!: IUser;
@@ -14,7 +14,7 @@ class User {
   }
 
   fetchRegisterUser(email: string, password: string): void {
-    fetch(`${ghPagesUrl}/register`, {
+    fetch(`${baseUrl}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,2 +1,2 @@
-export const localUrl:string = "http://localhost:3001";
-export const ghPagesUrl:string = "https://my-json-server.typicode.com/Lokrand/todo-list";
+export const baseUrl:string = "http://localhost:3001";
+// export const baseUrl:string = "https://my-json-server.typicode.com/Lokrand/todo-list";

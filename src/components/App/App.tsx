@@ -11,21 +11,7 @@ export const App: FC = () => {
       <Header />
       <Routes>
         <Route path="/todo-list" element={<Login />} />
-        <Route
-          path="/todos"
-          element={
-            <TodoList
-              item={{
-                title: undefined,
-                completed: false,
-                id: undefined,
-              }}
-              id={undefined}
-              completed={false}
-              title={undefined}
-            />
-          }
-        ></Route>
+        <Route path="/todos" element={<TodoList />}></Route>
       </Routes>
     </main>
   );

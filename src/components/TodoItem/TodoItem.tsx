@@ -4,10 +4,9 @@ import todo from "../../store/todo";
 import { ITodo } from "../../types/todo";
 import { observer } from "mobx-react-lite";
 
-export const TodoItem: FC<{ item: ITodo }> = observer((item) => {
-  // i dont what is it, but its worked :)
-  const element = JSON.parse(JSON.stringify(item.item));
-
+export const TodoItem: FC<{ item: ITodo }> = observer((props) => {
+  const element = props.item;
+  
   const removeTodo = (): void => {
     todo.removeTodo(element.id);
   };
