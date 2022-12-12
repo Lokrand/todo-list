@@ -4,42 +4,48 @@ import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
 import todo from "../../store/todo";
 import { observer } from "mobx-react-lite";
-import { ITodo } from "../../types/todo";
 
-export const TodoList:FC = observer(() => {
+export const TodoList: FC = observer(() => {
   const [popupActive, setPopupActive] = useState<boolean>(false);
 
-  const openPopup = ():void => {
+  const openPopup = (): void => {
     setPopupActive(true);
-    todo.fetchTodos()
-  }
-  const closePopup = ():void => {
+    todo.fetchTodos();
+  };
+  const closePopup = (): void => {
     setPopupActive(false);
-  }
+  };
 
-  const filterByAll = ():void => {
-    todo.fetchTodos()
-  }
-  const filterByDone = ():void => {
-    todo.filterByDone()
-  }
-  const filterByUndone = ():void => {
-    todo.filterByUndone()
-  }
+  const filterByAll = (): void => {
+    todo.fetchTodos();
+  };
+  const filterByDone = (): void => {
+    todo.filterByDone();
+  };
+  const filterByUndone = (): void => {
+    todo.filterByUndone();
+  };
 
   return (
     <section className={styles.todos}>
       <div className={styles.todos__filter}>
         <div className={styles.todos__filterBlock}>
-        <h2>Filter by:</h2>
-        <div className={styles.todos__buttons}>
-          <button className={styles.todos__button} onClick={filterByAll}>all</button>
-          <button className={styles.todos__button} onClick={filterByDone}>done</button>
-          <button className={styles.todos__button} onClick={filterByUndone}>undone</button>
+          <h2>Filter by:</h2>
+          <div className={styles.todos__buttons}>
+            <button className={styles.todos__button} onClick={filterByAll}>
+              all
+            </button>
+            <button className={styles.todos__button} onClick={filterByDone}>
+              done
+            </button>
+            <button className={styles.todos__button} onClick={filterByUndone}>
+              undone
+            </button>
+          </div>
         </div>
-
-        </div>
-        <button className={styles.todos__addTodoButton} onClick={openPopup}>Add new todo</button>
+        <button className={styles.todos__addTodoButton} onClick={openPopup}>
+          Add new todo
+        </button>
       </div>
       <div className={styles.todos__columns}>
         <div className={styles.todos__number}>
@@ -57,12 +63,12 @@ export const TodoList:FC = observer(() => {
       </div>
       <div>
         {todo.todos.map((el) => {
-          return (
-            <TodoItem key={el.id} item={el} />
-          )
+          return <TodoItem key={el.id} item={el} />;
         })}
       </div>
-      {popupActive && <Popup active={popupActive} setActive={setPopupActive}/>}
+      {popupActive && (
+        <Popup active={popupActive} handleOpenPopup={setPopupActive} />
+      )}
     </section>
   );
 });

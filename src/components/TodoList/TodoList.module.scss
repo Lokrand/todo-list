@@ -82,11 +82,11 @@
     width: 250px;
     height: 40px;
     border: none;
-    background:deepskyblue;
+    background: deepskyblue;
     border-radius: 10px;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
       cursor: pointer;
     }
   }

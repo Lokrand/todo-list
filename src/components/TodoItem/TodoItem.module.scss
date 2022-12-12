@@ -11,8 +11,6 @@
     grid-template-columns: 1fr 4fr 2fr 3fr;
   }
   @media screen and (max-width: 800px) {
-    grid-area: "a c d"
-               "b b b";
     &:first-child {
       border-top: 1px solid #fff;
     }
@@ -49,9 +47,9 @@
     background-color: green;
     border: none;
     border-radius: 10px;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
       cursor: pointer;
     }
   }
@@ -61,9 +59,9 @@
     background-color: blue;
     border: none;
     border-radius: 10px;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
       cursor: pointer;
     }
   }
@@ -73,9 +71,9 @@
     background-color: red;
     border: none;
     border-radius: 10px;
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
       cursor: pointer;
     }
   }

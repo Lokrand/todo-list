@@ -1,10 +1,9 @@
 import { makeAutoObservable } from "mobx";
 import { ITodo } from "../types/todo";
-import { baseUrl } from "../utils/constants";
 
 class Todo {
   todos: ITodo[] = [];
-
+  url: string = "http://localhost:3001/todos";
   constructor() {
     makeAutoObservable(this);
   }
@@ -13,75 +12,67 @@ class Todo {
     this.todos.push(todo);
   }
 
-  removeTodo(id: number): void {
-    fetch(`${baseUrl}/todos/${id}`, { method: "DELETE" ,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-      .then(() => this.fetchTodos())
-      .catch((err) => console.error(err));
+  async checkResponse(res: any) {
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    } else {
+      console.error(res);
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
   }
 
-  completeTodo(id: number): void {
-    this.todos = this.todos.map((el) =>
-      el.id === id ? { ...el, completed: !el.completed } : el
+  async commonFetch(path: string, params = {}) {
+    try {
+      const res = await fetch(`${this.url}${path}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        ...params,
+      });
+      return await this.checkResponse(res);
+    } catch (error) {
+      console.log("checkresponse = ", error);
+      return Promise.reject(error);
+    }
+  }
+
+  removeTodo(id: number): void {
+    this.commonFetch(`/${id}`, { method: "DELETE" }).then(() =>
+      this.fetchTodos()
     );
   }
 
   filterByDone(): void {
-    fetch(`${baseUrl}/todos?completed=true`, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => {
-        this.todos = [...json];
-      })
-      .catch((err) => console.error(err));
+    this.commonFetch("?completed=true", { method: "GET" }).then((json) => {
+      this.todos = [...json];
+    });
   }
 
   filterByUndone(): void {
-    fetch(`${baseUrl}/todos?completed=false`, { method: "GET" })
-      .then((res) => res.json())
-      .then((json) => {
-        this.todos = [...json];
-      })
-      .catch((err) => console.error(err));
+    this.commonFetch("?completed=false", { method: "GET" }).then((json) => {
+      this.todos = [...json];
+    });
   }
 
   fetchTodos(): void {
-    fetch(`${baseUrl}/todos`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        this.todos = [...json];
-      })
-      .catch((err) => console.error(err));
+    this.commonFetch("", { method: "GET" }).then((json) => {
+      this.todos = [...json];
+    });
   }
 
   fetchCompleteTodo(todo: ITodo): void {
-    fetch(`${baseUrl}/todos/${todo.id}`, {
+    this.commonFetch(`/${todo.id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: todo.title, completed: !todo.completed }),
-    })
-      .then(() => this.fetchTodos())
-      .catch((err) => console.error(err));
+    }).then(() => this.fetchTodos());
   }
 
   fetchAddNewTodo(name: string): void {
-    fetch(`${baseUrl}/todos`, {
+    this.commonFetch("", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({ title: name, completed: false }),
-    })
-      .then((res) => res.json())
-      .then(this.addTodo)
-      .catch((err) => console.error(err));
+    }).then(this.addTodo);
   }
 }
 

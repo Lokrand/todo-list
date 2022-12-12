@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 
 export const TodoItem: FC<{ item: ITodo }> = observer((props) => {
   const element = props.item;
-  
+
   const removeTodo = (): void => {
     todo.removeTodo(element.id);
   };

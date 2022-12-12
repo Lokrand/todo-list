@@ -1,96 +1,25 @@
 {
   "todos": [
     {
-      "title": "ya yayayayayay",
-      "completed": true,
-      "id": 23
-    },
-    {
-      "title": "wqqwqwdqwd",
-      "completed": true,
-      "id": 25
-    },
-    {
-      "title": "new task",
-      "completed": true,
-      "id": 26
-    },
-    {
       "title": "1",
       "completed": false,
-      "id": 28
-    },
-    {
-      "title": "1",
-      "completed": true,
-      "id": 32
-    },
-    {
-      "title": "123321",
-      "completed": false,
-      "id": 33
-    },
-    {
-      "title": "3",
-      "completed": false,
-      "id": 34
-    },
-    {
-      "title": "4",
-      "completed": false,
-      "id": 35
-    },
-    {
-      "title": "5",
-      "completed": false,
-      "id": 36
-    },
-    {
-      "title": "6",
-      "completed": true,
-      "id": 37
-    },
-    {
-      "title": "7",
-      "completed": true,
-      "id": 38
-    },
-    {
-      "title": "8",
-      "completed": false,
-      "id": 39
-    },
-    {
-      "title": "9",
-      "completed": false,
-      "id": 40
-    },
-    {
-      "title": "10",
-      "completed": false,
-      "id": 41
-    }
-  ],
-  "users": [
-    {
-      "email": "12212@mail.ru",
-      "password": "$2a$10$SQqXpb8VwfIU5MQZuxiMweg7KjXalYYyX8Mw04ew8nUg9axx4vW22",
       "id": 1
     },
     {
-      "email": "eefwef@mail.ru",
-      "password": "$2a$10$LEXEExG2W2ihxAwnz8oaf.nA2H8lj72qS4Tr/PF6zcLlwXxeL8nDO",
+      "title": "new task",
+      "completed": false,
       "id": 2
     },
     {
-      "email": "weeeeeee@mail.ru",
-      "password": "$2a$10$9GYZtkG64dKqkMP9KVEetOf3I5qmT1wDfeNyaFBSRIT4pzXv.5Cda",
+      "title": "test 1",
+      "completed": true,
       "id": 3
     },
     {
-      "email": "rrgre@mail.ru",
-      "password": "$2a$10$Vyu8YliBctnwPaB.jeg4/u61p05LjiLj2H4JOfHjQXQVTVUK.DQbq",
+      "title": "newnewnewTasksskssksk   ah",
+      "completed": true,
       "id": 4
     }
-  ]
+  ],
+  "users": []
 }

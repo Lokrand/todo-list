@@ -1,9 +1,9 @@
 import { makeAutoObservable } from "mobx";
 import { IUser } from "../types/user";
-import { baseUrl } from "../utils/constants";
 
 class User {
   currentUser!: IUser;
+  url: string = "http://localhost:3001/register";
 
   constructor() {
     makeAutoObservable(this);
@@ -14,7 +14,7 @@ class User {
   }
 
   fetchRegisterUser(email: string, password: string): void {
-    fetch(`${baseUrl}/register`, {
+    fetch(this.url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
