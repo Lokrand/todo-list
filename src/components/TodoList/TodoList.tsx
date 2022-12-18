@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useEffect } from "react";
 import styles from "./TodoList.module.scss";
 import { TodoItem } from "../TodoItem/TodoItem";
 import { Popup } from "../Popup/Popup";
@@ -7,6 +7,10 @@ import { observer } from "mobx-react-lite";
 
 export const TodoList: FC = observer(() => {
   const [popupActive, setPopupActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    todo.fetchTodos();
+  }, []);
 
   const openPopup = (): void => {
     setPopupActive(true);
@@ -66,9 +70,7 @@ export const TodoList: FC = observer(() => {
           return <TodoItem key={el.id} item={el} />;
         })}
       </div>
-      {popupActive && (
-        <Popup active={popupActive} handleOpenPopup={setPopupActive} />
-      )}
+      <Popup active={popupActive} onClose={() => setPopupActive(false)} />
     </section>
   );
 });

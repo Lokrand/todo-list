@@ -9,9 +9,15 @@
   height: calc(100vh - 80px);
   background: rgba(0, 0, 0, 0.6);
   opacity: 1;
-  transition: 0.5s all;
+  scale: 1;
+  transition: all .2s linear;
   z-index: 9999;
-
+  &_inactive {
+    width: 0;
+    overflow: hidden;
+    scale: .5;
+    // display: none;
+  }
   &__content {
     position: relative;
     width: 600px;

@@ -53,7 +53,7 @@
       opacity: 0.6;
       cursor: pointer;
     }
-    &_disabled {
+    &:disabled {
       background-color: grey;
       &:hover {
         opacity: 1;

@@ -1,16 +1,20 @@
-import React, { useEffect, useState, FC, KeyboardEvent } from "react";
+import React, { useEffect, useState, FC } from "react";
 import { Cross } from "../../icons/Cross";
 import styles from "./Popup.module.scss";
 import todo from "../../store/todo";
-import { IPopup } from "../../types/popup";
 
-export const Popup: FC<IPopup> = ({ active, handleOpenPopup }) => {
+interface IPopup {
+  active: boolean;
+  onClose: VoidFunction;
+}
+
+export const Popup: FC<IPopup> = ({ active, onClose }) => {
   const [textareaValue, setTextareaValue] = useState<string>("");
 
   useEffect(() => {
-    function closeByEscape(evt: any): void {
+    function closeByEscape(evt: KeyboardEvent) {
       if (evt.key === "Escape") {
-        handleOpenPopup(false);
+        onClose();
         setTextareaValue("");
       }
     }
@@ -25,7 +29,7 @@ export const Popup: FC<IPopup> = ({ active, handleOpenPopup }) => {
   const addNewTodo = () => {
     todo.fetchAddNewTodo(textareaValue);
     todo.fetchTodos();
-    handleOpenPopup(false);
+    onClose();
   };
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +37,7 @@ export const Popup: FC<IPopup> = ({ active, handleOpenPopup }) => {
   };
 
   return (
-    <div className={styles.popup}>
+    <div className={active ? styles.popup : `${styles.popup} ${styles.popup_inactive}`}>
       <div className={styles.popup__content}>
         <h3 className={styles.popup__title}>Add a new task</h3>
         <form className={styles.popup__form}>
@@ -62,7 +66,7 @@ export const Popup: FC<IPopup> = ({ active, handleOpenPopup }) => {
         <div
           className={styles.popup__cross}
           onClick={() => {
-            handleOpenPopup(false);
+            onClose();
           }}
         >
           <Cross />

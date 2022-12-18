@@ -1,40 +1,38 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useCallback } from "react";
 import styles from "./Login.module.scss";
 import { useNavigate } from "react-router-dom";
-import todo from "../../store/todo";
 import user from "../../store/user";
 import { observer } from "mobx-react-lite";
+
+const checkEmail =
+  /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/i;
 
 export const Login: FC = observer(() => {
   const [emailValue, setEmailValue] = useState<string>("");
   const [passwordValue, setPasswordValue] = useState<string>("");
-  const [buttonActive, setButtonActive] = useState(false);
-  const checkEmail = new RegExp(
-    /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/gi
-  );
   const navigate = useNavigate();
-  useEffect(() => {
-    if (checkEmail.test(emailValue) && passwordValue.length > 5) {
-      setButtonActive(true);
-    } else {
-      setButtonActive(false);
-    }
-  }, [emailValue, passwordValue]);
+  const buttonActive = checkEmail.test(emailValue) && passwordValue.length > 5;
 
-  const changeEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setEmailValue(e.target.value);
-  };
-  const changePassword = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setPasswordValue(e.target.value);
-  };
+  const changeEmail = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEmailValue(e.target.value);
+    },
+    []
+  );
 
-  const login = (): void => {
+  const changePassword = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setPasswordValue(e.target.value);
+    },
+    []
+  );
+
+  const login = useCallback(() => {
     user.fetchRegisterUser(emailValue, passwordValue);
     setEmailValue("");
     setPasswordValue("");
-    setButtonActive(false);
-    todo.fetchTodos();
-  };
+  }, []);
+
   useEffect(() => {
     if (user.currentUser) {
       return navigate("/todos");
@@ -71,18 +69,13 @@ export const Login: FC = observer(() => {
             ) : null}
           </div>
         </div>
-        {buttonActive ? (
-          <button className={styles.login__button} onClick={login}>
-            Login
-          </button>
-        ) : (
-          <button
-            className={`${styles.login__button} ${styles.login__button_disabled}`}
-            disabled
-          >
-            Login
-          </button>
-        )}
+        <button
+          className={styles.login__button}
+          onClick={login}
+          disabled={!buttonActive}
+        >
+          Login
+        </button>
       </div>
     </section>
   );
