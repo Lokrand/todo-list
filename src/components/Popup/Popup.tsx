@@ -19,6 +19,7 @@ export const Popup: FC<IPopup> = ({ active, onClose }) => {
       }
     }
     if (active) {
+      
       document.addEventListener("keydown", closeByEscape);
       return () => {
         document.removeEventListener("keydown", closeByEscape);
